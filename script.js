@@ -78,22 +78,24 @@ $(document).ready(function () {
         });
     });
 
-    // Handle Add Employee Form Submission
+   // Handle Add Employee Form Submission
     $('#saveInfo').submit(function(e) {
         e.preventDefault();
 
         let formData = $(this).serialize(); // Serialize form data
 
         // Validate fields
-        let empID = $("input[name='empID']").val();
-        let name = $("input[name='name']").val();
+        let empID = $("input[name='empID']").val().trim();
+        let name = $("input[name='name']").val().trim();
         let office = $("#office").val();
-        let position = $("input[name='position']").val();
-        let address = $("input[name='address']").val();
-        let phone = $("input[name='phone']").val();
+        let position = $("input[name='position']").val().trim();
+        let address = $("input[name='address']").val().trim();
+        let phone = $("input[name='phone']").val().trim();
+        let degree = $("#degree").val();
+        let degreeDetails = $("textarea[name='degreeDetails']").val().trim();
 
-        if (!empID || !name || !office || !position || !address || !phone) {
-            Swal.fire("Warning", "All fields are required!", "warning");
+        if (!empID || !name || !office || !position || !address || !phone || !degree || !degreeDetails) {
+            Swal.fire("Warning", "All fields are required, including Degree and Degree Info!", "warning");
             return;
         }
 
@@ -132,10 +134,11 @@ $(document).ready(function () {
         });
     });
 
-    // Handle View Employee Button Click
+
+   // Handle View Employee Button Click
     $('.viewEmployeebtn').click(function() {
         let employeeId = $(this).val();
-    
+
         // Fetch employee details via AJAX
         $.ajax({
             url: 'getEmployee.php', 
@@ -150,17 +153,19 @@ $(document).ready(function () {
                     $('#empPosition').val(response.position);
                     $('#empAddress').val(response.address);
                     $('#empPhone').val(response.phone);
-    
+                    $('#empDegree').val(response.degree);
+                    $('#empDegreeDetails').val(response.degreeDetails);
+
                     // Load offices and set the selected office
                     loadOffices('#empOffice', response.officeID);
-    
+
                     // Disable select and input fields by default
-                    $('#empName, #empOffice, #empPosition, #empAddress, #empPhone').prop('disabled', true);
-    
+                    $('#empName, #empOffice, #empPosition, #empAddress, #empPhone, #empDegree, #empDegreeDetails').prop('disabled', true);
+
                     // Enable Edit/Delete buttons
                     $('.editEmployeeBtn').attr('data-id', employeeId);
                     $('.deleteEmployeeBtn').attr('data-id', employeeId);
-    
+
                     // Show modal
                     $('#employeeModal').modal('show');
                 } else {
@@ -172,15 +177,16 @@ $(document).ready(function () {
             }
         });
     });
+
     
 
     // Handle Edit Employee Button Click
     $('.editEmployeeBtn').click(function() {
         let employeeId = $(this).attr('data-id');
-    
+
         // Enable input fields for editing
-        $('#empName, #empOffice, #empPosition, #empAddress, #empPhone').prop('disabled', false);
-    
+        $('#empName, #empOffice, #empPosition, #empAddress, #empPhone, #empDegree, #empDegreeDetails').prop('disabled', false);
+
         // Change button text to Save
         $(this).text("Save").removeClass("btn-success").addClass("btn-primary").off("click").on("click", function() {
             let updatedData = {
@@ -189,10 +195,12 @@ $(document).ready(function () {
                 officeID: $('#empOffice').val(), 
                 position: $('#empPosition').val(),
                 address: $('#empAddress').val(),
-                phone: $('#empPhone').val()
+                phone: $('#empPhone').val(),
+                degree: $('#empDegree').val(),
+                degreeDetails: $('#empDegreeDetails').val()
+                  // Capture selected degree
             };
-            
-    
+
             // Confirm save action
             Swal.fire({
                 title: "Save Changes?",
@@ -220,6 +228,7 @@ $(document).ready(function () {
             });
         });
     });
+
     
 
     // Handle Delete Employee Button Click

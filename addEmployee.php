@@ -8,6 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $position = $_POST['position'];
     $address = $_POST['address'];
     $phone = $_POST['phone'];
+    $degree = $_POST['degree'];
+    $degreeDetails = $_POST['degreeDetails'];
 
     // Check if empID already exists
     $checkQuery = "SELECT * FROM employees WHERE empID = ?";
@@ -19,10 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->num_rows > 0) {
         echo "duplicate"; // Employee ID already exists
     } else {
-        // Insert new employee
-        $insertQuery = "INSERT INTO employees (empID, name, officeID, position, address, phone) VALUES (?, ?, ?, ?, ?, ?)";
+        // Insert new employee with degree fields
+        $insertQuery = "INSERT INTO employees (empID, name, officeID, position, address, phone, degree, degreeDetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $con->prepare($insertQuery);
-        $stmt->bind_param("ssisss", $empID, $name, $officeID, $position, $address, $phone);
+        $stmt->bind_param("ssisssss", $empID, $name, $officeID, $position, $address, $phone, $degree, $degreeDetails);
         
         if ($stmt->execute()) {
             echo "success";
