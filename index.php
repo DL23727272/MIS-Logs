@@ -20,7 +20,7 @@
       referrerpolicy="no-referrer"
     />
 
-    <title>Validation Form</title>
+    <title>MIS Form</title>
     <link href="styles.css" rel="stylesheet" />
   </head>
   <body>
