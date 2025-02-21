@@ -246,11 +246,8 @@
           <div class="card-header back d-flex flex-wrap justify-content-between align-items-center gap-3">
               <!-- Left Section -->
               <div>
-                  <h4 class="mb-1">Developed by: Dran Leynard P. Gamoso</h4>
-                  <a href="https://dlportfolio.personatab.com/" target="_blank" 
-                    class="link-danger link-offset-2 link-underline link-underline-opacity-0 fw-bold text-dark">
-                      <i class="fa-solid fa-briefcase"></i> Visit DL Portfolio
-                  </a>
+                  <h4 class="mb-1">MIS - Main Campus</h4>
+                 
               </div>
 
               <!-- Right Section -->
@@ -362,7 +359,8 @@
               .join(" ");
           });
         });
-
+        console.log("Developed by: Dran Leynard P. Gamoso");
+        console.log("DL's Portfolio: " + "https://dlportfolio.personatab.com/");
 
     </script>
 

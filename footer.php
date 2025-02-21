@@ -48,6 +48,17 @@
                     <li><a href="https://maps.app.goo.gl/BbMDpzJFRiL83TUR6" class="text-decoration-none text-warning">Site Map</a></li>
                 </ul>
             </div>
+             <!-- Left Section -->
+             <div>
+                  <h4 class="mb-1"><i class="fa-solid fa-user-tie"></i> Developed by: Dran Leynard P. Gamoso</h4>
+                  <h4>
+                     <a href="https://dlportfolio.personatab.com/" target="_blank" 
+                        class="link-info  link-offset-2 link-underline link-underline-opacity-0 fw-bold text-warning">
+                        <i class="fa-solid fa-briefcase"></i> Visit DL's Portfolio
+                    </a>
+                  </h4>
+                 
+              </div>
         </div>
     </div>
 </footer>

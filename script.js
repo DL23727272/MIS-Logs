@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    
     // Function to load offices into a select element
     function loadOffices(selectElement, selectedOffice = '') {
         $.ajax({
@@ -8,10 +9,10 @@ $(document).ready(function () {
             success: function (response) {
                 let options = '<option value="">Select Office</option>';
                 JSON.parse(response).forEach(office => {
-                    console.log(office.officeID); // Move inside loop
                     options += `<option value="${office.officeID}" ${office.officeID == selectedOffice ? 'selected' : ''}>${office.officeName}</option>`;
                 });
                 $(selectElement).html(options);
+                
             }
         });
     }
