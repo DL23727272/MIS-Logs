@@ -45,7 +45,7 @@
                 <ul class="list-unstyled">
                     <li><a href="#" class="text-decoration-none text-warning">Privacy Policy</a></li>
                     <li><a href="#" class="text-decoration-none text-warning">Terms of Use</a></li>
-                    <li><a href="#" class="text-decoration-none text-warning">Site Map</a></li>
+                    <li><a href="https://maps.app.goo.gl/BbMDpzJFRiL83TUR6" class="text-decoration-none text-warning">Site Map</a></li>
                 </ul>
             </div>
         </div>
