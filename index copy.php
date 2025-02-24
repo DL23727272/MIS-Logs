@@ -76,14 +76,11 @@
             </div>
             <div class="mb-3 input-group">
                 <input type="password" id="userPassword" class="form-control" name="userLoginPassword" placeholder="Password" required>
-                        <button class="btn btn-outline-dark" type="button" id="togglePassword">
+                        <button class="btn btn-outline-light" type="button" id="togglePassword">
                                   <i class="fa fa-eye-slash" id="eyeIcon" aria-hidden="true"></i>
                           </button>
             </div>
             <button type="button" class="btn w-100 text-white" style="background: #800000" onclick="Login()">Login</button>
-            <a href="signin.php">
-             Signup
-            </a>
         </form>
     </div>
 
@@ -136,11 +133,6 @@
                     dataType: "json",
                     success: function(response) {
                         if (response.status === "success") {
-
-                          sessionStorage.setItem("userID", response.userID);
-                          sessionStorage.setItem("username", response.username);
-                          sessionStorage.setItem("userType", response.type);
-                          
                             Swal.fire({
                                 icon: "success",
                                 title: "Login Successful!",
@@ -150,11 +142,7 @@
                             });
 
                             setTimeout(function() {
-                              if (response.type === 'admin') {
-                                  window.location.href = 'admin.php'; 
-                              } else {
-                                  window.location.href = 'home.php'; 
-                              }
+                                window.location.href = "home.php"; 
                             }, 2000);
                         } else {
                             Swal.fire({
