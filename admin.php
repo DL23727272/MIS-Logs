@@ -256,15 +256,32 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a
-                class="nav-link active"
-                style="color: yellow"
-                aria-current="page"
+                class="nav-link"
                 href="index.php"
                 ><i class="fa-solid fa-power-off"></i> Logout</a
               >
             </li>
+
+            <li class="nav-item active">
+              <a
+                class="nav-link"
+                style="color: yellow"
+                aria-current="page"
+                href="admin.php"
+                > admin</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link "
+                href="accounts.php"
+                > accounts</a
+              >
+            </li>
+          </ul>
           </ul>
          
         </div>

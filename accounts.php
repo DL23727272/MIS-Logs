@@ -29,6 +29,46 @@
   </head>
   <body>
 
+    <!-- Edit User Modal -->
+    <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editUserForm">
+                        <input type="hidden" id="editUserID" name="userID">
+                        
+                        <div class="mb-3">
+                            <label for="editUsername" class="form-label">Username</label>
+                            <input type="text" id="editUsername" name="username" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editPassword" class="form-label">New Password</label>
+                            <input type="password" id="editPassword" name="password" class="form-control" placeholder="Enter new password">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editUserType" class="form-label">User Type</label>
+                            <select id="editUserType" name="userType" class="form-select">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="updateUserBtn">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <header class="header">
       <div class="container">
@@ -81,11 +121,26 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a
+                class="nav-link"
+                href="index.php"
+                ><i class="fa-solid fa-power-off"></i> Logout</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="admin.php"
+                > admin</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
                 class="nav-link active"
                 style="color: yellow"
                 aria-current="page"
-                href="index.php"
-                ><i class="fa-solid fa-power-off"></i> Logout</a
+                href="accounts.php"
+                > accounts</a
               >
             </li>
           </ul>
@@ -109,7 +164,7 @@
                   <!-- Search Bar -->
                   <div class="d-flex align-items-center">
                       <i class="fa-solid fa-search me-2"></i>
-                      <input type="text" id="searchEmployee" class="form-control w-auto" placeholder="Search by name">
+                      <input type="text" id="searchUser" class="form-control w-auto" placeholder="Search by name">
                   </div>
               </div>
           </div>
@@ -160,7 +215,7 @@
         console.log("Developed by: Dran Leynard P. Gamoso");
         console.log("DL's Portfolio: " + "https://dlportfolio.personatab.com/");
 
-        /*document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function () {
             let empID = sessionStorage.getItem("username");
             console.log("Stored Employee ID:", empID);
 
@@ -176,7 +231,7 @@
                 });
                 return; // Stop further script execution
             }
-          });*/
+        });
 
     </script>
 
