@@ -45,10 +45,13 @@
                             <label for="editUsername" class="form-label">Username</label>
                             <input type="text" id="editUsername" name="username" class="form-control">
                         </div>
-
-                        <div class="mb-3">
-                            <label for="editPassword" class="form-label">New Password</label>
+                        <label for="editPassword" class="form-label">New Password</label>
+                        <div class="mb-3 input-group">
+                            
                             <input type="password" id="editPassword" name="password" class="form-control" placeholder="Enter new password">
+                            <button class="btn btn-outline-dark" type="button" id="togglePassword">
+                                    <i class="fa fa-eye-slash" id="eyeIcon" aria-hidden="true"></i>
+                            </button>
                         </div>
 
                         <div class="mb-3">
@@ -232,6 +235,32 @@
                 return; // Stop further script execution
             }
         });
+
+        // --------------- FOR PASSWORD TOGGLE --------------
+      
+        document.addEventListener('DOMContentLoaded', function () {
+            const togglePassword = document.getElementById('togglePassword');
+            const passwordInput = document.getElementById('editPassword');
+            const eyeIcon = document.getElementById('eyeIcon');
+
+            togglePassword.addEventListener('click', function () {
+                // Toggle the password field type
+                const type = passwordInput.type === 'password' ? 'text' : 'password';
+                passwordInput.type = type;
+
+                // Toggle the eye icon
+                if (type === 'password') {
+                    eyeIcon.classList.remove('fa-eye');
+                    eyeIcon.classList.add('fa-eye-slash');
+                } else {
+                    eyeIcon.classList.remove('fa-eye-slash');
+                    eyeIcon.classList.add('fa-eye');
+                }
+            });
+        });
+
+      // --------------- END FOR PASSWORD TOGGLE --------------
+
 
     </script>
 

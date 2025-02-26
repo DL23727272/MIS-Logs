@@ -22,6 +22,14 @@ if ($query_run && mysqli_num_rows($query_run) > 0) {
     
     <?php
 } else {
-    echo "<tr><td colspan='9' class='text-center'>No records found.</td></tr>";
+    echo "<tr>
+        <td colspan='9' class='text-center'>
+            No records found. 
+            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#studentAddModal'>
+                Add record <i class='fa-solid fa-user-plus'></i>
+            </button>
+        </td>
+      </tr>";
+
 }
 ?>

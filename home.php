@@ -222,13 +222,13 @@
               </div>
 
               <!-- Right Section -->
-              <div class="d-flex flex-wrap justify-content-end align-items-center gap-2">
+              <div class="d-flex flex-wrap justify-content-end align-items-center gap-2" id="addRecord">
 
 
                   <!-- Buttons -->
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#studentAddModal">
-                      Add Employee <i class="fa-solid fa-user-plus"></i>
-                  </button>
+                  <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#studentAddModal">
+                      Add record <i class="fa-solid fa-user-plus"></i>
+                  </button> -->
               </div>
           </div>
       </div>
