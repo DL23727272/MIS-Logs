@@ -122,41 +122,45 @@
 
 
       function Signup() {
-    var username = $("#signupUsername").val().trim();
-    var password = $("#signupPassword").val().trim();
-    var confirmPassword = $("#confirmPassword").val().trim();
+          var username = $("#signupUsername").val().trim();
+          var password = $("#signupPassword").val().trim();
+          var confirmPassword = $("#confirmPassword").val().trim();
 
-    if (username === "" || password === "" || confirmPassword === "") {
-        Swal.fire("Missing Fields", "Please fill in all fields.", "warning");
-        return;
-    }
+          if (username === "" || password === "" || confirmPassword === "") {
+              Swal.fire("Missing Fields", "Please fill in all fields.", "warning");
+              return;
+          }
 
-    if (password !== confirmPassword) {
-        Swal.fire("Passwords Do Not Match", "Please confirm your password correctly.", "error");
-        return;
-    }
+          if (password.length < 8) {
+              Swal.fire("Weak Password", "Password must be at least 8 characters long.", "error");
+              return;
+          }
 
-    $.ajax({
-        type: "POST",
-        url: "signupProcess.php",
-        data: {
-            signupUsername: username, // ✅ Matches PHP $_POST['signupUsername']
-            signupPassword: password  // ✅ Matches PHP $_POST['signupPassword']
-        },
-        dataType: "json",
-        success: function(response) {
-            Swal.fire(response.message, "", response.status === "success" ? "success" : "error");
-            if (response.status === "success") {
-                setTimeout(() => { window.location.href = "index.php"; }, 2000);
-            }
-        },
-        error: function(xhr) {
-            console.error("AJAX Error:", xhr.responseText);
-            Swal.fire("Error", "Something went wrong. Please try again.", "error");
-        }
-    });
-}
+          if (password !== confirmPassword) {
+              Swal.fire("Passwords Do Not Match", "Please confirm your password correctly.", "error");
+              return;
+          }
 
+          $.ajax({
+              type: "POST",
+              url: "signupProcess.php",
+              data: {
+                  signupUsername: username, 
+                  signupPassword: password  
+              },
+              dataType: "json",
+              success: function(response) {
+                  Swal.fire(response.message, "", response.status === "success" ? "success" : "error");
+                  if (response.status === "success") {
+                      setTimeout(() => { window.location.href = "index.php"; }, 2000);
+                  }
+              },
+              error: function(xhr) {
+                  console.error("AJAX Error:", xhr.responseText);
+                  Swal.fire("Error", "Something went wrong. Please try again.", "error");
+              }
+          });
+      }
 
            
 
